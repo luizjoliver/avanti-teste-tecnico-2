@@ -12,9 +12,6 @@ html, body {
   text-rendering: optimizeLegibility;
 }
 
-
-
-
 ul,
 ol {
   list-style: none;
@@ -40,4 +37,11 @@ select {
 
 button {
   cursor: pointer;
+}
+
+@theme {
+  --color-bluevanti-500: #005CFF;
+  --color-darkvanti-500:#000000;
+  --color-whitevanti-500:#FFFFFF;
+  --color-redvanti-500:#FF0000;
 }
