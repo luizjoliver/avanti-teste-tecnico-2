@@ -9,7 +9,7 @@ export default function UserCard({userInfo}:userCardType) {
     console.log(JSON.stringify(userInfo));
     
     return (<>
-        {userInfo ? (
+        {userInfo?.name ? (
             <article className=" md:max-w-[804px] md:h-[257px] w-full h-full bg-bguser-500 rounded-xl p-6 flex items-center  justify-center gap-5">
 
                 <div className="size-[90%] flex items-center justify-center gap-4  flex-col md:flex-row">
@@ -26,7 +26,7 @@ export default function UserCard({userInfo}:userCardType) {
             </article>
         )
             : <article className=" md:max-w-[804px] md:h-[257px] w-full h-full bg-bguser-500 rounded-xl p-6 flex items-center  justify-center gap-5">
-                    <p>Nenhum perfil foi encontrado com este nome de usuário.
+                    <p className='text-redvanti-500'>Nenhum perfil foi encontrado com este nome de usuário.
                         <br/>
                         Tente Novamente
                     </p>

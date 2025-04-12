@@ -9,20 +9,21 @@ function App() {
 
   const [user, setUser] = useState<string>('')
   const [userInfo, setUserInfo] = useState<GithubResponse>()
- 
+  const [isFetched,setIsFetched] = useState(false)
 
   async function handleSearchUser(e: FormEvent<HTMLFormElement>) {
-
     e.preventDefault()
-
-
-
-
-    const userData = await fetchData(user)
-
-    setUserInfo(userData)
- 
-
+    
+    try {
+      const userData = await fetchData(user);
+      setUserInfo(userData);
+      setIsFetched(true);
+    } catch (error) {
+      console.log(error);
+  
+      setUserInfo(undefined);
+      setIsFetched(true);
+    }
   }
 
   function handleChangeUserName(e: ChangeEvent<HTMLInputElement>) {
@@ -67,7 +68,7 @@ function App() {
    
 
    
-          <UserCard userInfo={userInfo}/>
+          {isFetched && <UserCard userInfo={userInfo}/>}
        
       </section>
     </main>
