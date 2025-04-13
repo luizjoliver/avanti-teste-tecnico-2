@@ -1,6 +1,6 @@
 import { GithubResponse } from "../model/model";
 
-export const fetchData = async (userName: string): Promise<GithubResponse> => {
+export const fetchData = async (userName: string ): Promise<GithubResponse> => {
   const token = import.meta.env.VITE_GITHUB_TOKEN;
 
     

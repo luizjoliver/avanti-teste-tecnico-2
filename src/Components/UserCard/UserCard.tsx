@@ -4,10 +4,10 @@ type userCardType = {
     userInfo: GithubResponse
 }
 
-export default function UserCard({userInfo}:userCardType) {
+export default function UserCard({ userInfo }: userCardType) {
 
-    console.log(JSON.stringify(userInfo));
-    
+
+
     return (<>
         {userInfo?.name ? (
             <article className=" md:max-w-[804px] md:h-[257px] w-full h-full bg-bguser-500 rounded-xl p-6 flex items-center  justify-center gap-5">
@@ -18,7 +18,10 @@ export default function UserCard({userInfo}:userCardType) {
 
                     <div className="flex flex-col gap-4">
                         <h2 className="text-xl text-bluevanti-500 font-extrabold">{userInfo.name}</h2>
-                        <p className="font-light text-base">{userInfo.bio || 'A bio do usuário não foi encontrada!'}</p>
+                        <p className="font-light text-base overflow-y-auto max-h-[150px] pr-2">
+                        {userInfo.bio || 'Este usuário não possui uma bio pública.'}
+                        </p>
+
                     </div>
 
                 </div>
@@ -26,10 +29,10 @@ export default function UserCard({userInfo}:userCardType) {
             </article>
         )
             : <article className=" md:max-w-[804px] md:h-[257px] w-full h-full bg-bguser-500 rounded-xl p-6 flex items-center  justify-center gap-5">
-                    <p className='text-redvanti-500'>Nenhum perfil foi encontrado com este nome de usuário.
-                        <br/>
-                        Tente Novamente
-                    </p>
+                <p className='text-redvanti-500'>Nenhum perfil foi encontrado com este nome de usuário.
+                    <br />
+                    Tente Novamente
+                </p>
             </article>}
 
     </>
