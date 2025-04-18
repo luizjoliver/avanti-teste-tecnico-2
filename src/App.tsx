@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent,  useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 import LogoProfile from "./Components/LogoProfile/LogoProfile";
 import { GithubResponse } from "./model/model";
 import UserCard from "./Components/UserCard/UserCard";
@@ -9,13 +9,13 @@ function App() {
 
   const [user, setUser] = useState<string>('')
   const [userInfo, setUserInfo] = useState<GithubResponse>()
-  const [isFetched,setIsFetched] = useState(false)
+  const [isFetched, setIsFetched] = useState(false)
 
   async function handleSearchUser(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
 
-   
-    
+
+
     try {
       const userData = await fetchData(user);
       setUserInfo(userData);
@@ -35,21 +35,19 @@ function App() {
 
   return (
     <main className="h-screen w-full bg-black flex justify-center items-center">
-
-      <section className="h-[80%] w-[90%] md:w-[70%] flex flex-col items-center justify-around gap-4">
-
-        <div className="flex flex-col gap-5 w-full max-w-[503px]">
-
+      <div className="h-[80%] w-[90%] md:w-[70%] flex flex-col items-center justify-around gap-4">
+        
+        <header className="flex flex-col gap-5 w-full max-w-[503px]">
           <LogoProfile />
+          <SearchProfile
+            handleChangeUserName={handleChangeUserName}
+            handleSearchUser={handleSearchUser}
+            user={user}
+          />
+        </header>
 
-          <SearchProfile handleChangeUserName={handleChangeUserName} handleSearchUser={handleSearchUser} user={user}/>
-
-        </div>
-   
-          {isFetched && <UserCard userInfo={userInfo}/>}
-       
-      </section>
-
+        {isFetched && <UserCard userInfo={userInfo} />}
+      </div>
     </main>
   );
 }
