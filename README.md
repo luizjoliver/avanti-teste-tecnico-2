@@ -1,3 +1,25 @@
-Avanti teste técnico 2
+# Avanti - Teste Técnico 2
 
-Para rodar o projeto faça o clone do projeto , baixe as dependências com npm i e rode npm run dev  
+Bem-vindo(a) ao repositório do **Teste Técnico 2** da Avanti! 🚀
+
+## 🔧 Como rodar o projeto
+
+Siga os passos abaixo para configurar e iniciar o projeto localmente:
+
+1. **Clone o repositório:**
+
+   ```bash
+   git clone <URL-do-repositório>
+2. **Entre na pasta:**
+
+   ```bash
+   cd nomepasta
+3. **Instale as dependências:**
+
+   ```bash
+   npm i
+
+4. **Rode o projeto:**
+
+   ```bash
+   npm run dev
