@@ -1,7 +1,7 @@
 import { GithubResponse } from "../model/model";
 
 export const fetchData = async (userName: string ): Promise<GithubResponse> => {
-  const token = import.meta.env.VITE_GITHUB_TOKEN;
+  const token = import.meta.env.GITHUB_TOKEN;
 
     
   const response = await fetch(`https://api.github.com/users/${userName}`, {
