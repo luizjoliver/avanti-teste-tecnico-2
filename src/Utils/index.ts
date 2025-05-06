@@ -1,19 +1,12 @@
-import { GithubResponse } from "../model/model";
 
-export const fetchData = async (userName: string ): Promise<GithubResponse> => {
-  const token = import.meta.env.GITHUB_TOKEN;
 
-    
-  const response = await fetch(`https://api.github.com/users/${userName}`, {
-    headers: {
-      Authorization: `token ${token}`,
-    },
-  });
+export async function fetchData(username: string) {
+  const res = await fetch(`https://api.github.com/users/${username}`);
 
-  if (!response.ok) {
-    const errorData = await response.json();
-    throw new Error(errorData.message || 'Erro ao buscar usuário');
+  if (!res.ok) {
+    throw new Error("Erro ao buscar dados do GitHub");
   }
 
-  return response.json();
-};
+  const data = await res.json();
+  return data;
+}
